@@ -1,0 +1,97 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+/* Styles for the main menu */
+.menu {
+  font-family: 'Press Start 2P', monospace;
+  background: #000;
+  color: #fff;
+  padding: 12px;
+  border: 4px solid #fff;
+  box-shadow: 
+    inset 0 0 0 4px #000,
+    inset 0 0 0 8px #fff;
+  width: fit-content;
+}
+.selected {
+  color: yellow;
+}
+.selected span {
+  animation: blink 1s steps(2, start) infinite;
+}
+.menu div {
+  padding: 6px 10px;
+  cursor: pointer;
+}
+.menu div:hover {
+  background: #222;
+}
+@keyframes blink {
+  to { visibility: hidden; }
+}
+
+/* styles for the dialog boxes */
+.dialog-overlay {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dialog-box {
+  background: black;
+  color: white;
+  padding: 20px;
+  border: 4px solid white;
+
+
+  box-shadow:
+    inset 0 0 0 4px black,
+    inset 0 0 0 8px white;
+
+  font-family: 'Press Start 2P', monospace;
+  max-width: 400px;
+  text-align: center;
+}
+
+/* styles for the footer */
+footer {
+  background: #054970;
+  color: #fff;
+  padding: 12px;
+  border: 4px solid #fff;
+  box-shadow: 
+    inset 0 0 0 4px #000,
+    inset 0 0 0 8px #fff;
+  font-family: 'Press Start 2P', monospace;
+  display: flex;
+  justify-content: space-between;
+}
+
+/* styles for the equip menu */
+.equip-menu {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  
+  background: black;
+  color: white;
+  padding: 15px;
+  border: 4px solid white;
+
+  box-shadow:
+    inset 0 0 0 4px black,
+    inset 0 0 0 8px white;
+
+  font-family: 'Press Start 2P', monospace;
+}
+
+.equip-item {
+  padding: 8px;
+  cursor: pointer;
+}
+
+.equip-item:hover {
+  color: yellow;
+}
