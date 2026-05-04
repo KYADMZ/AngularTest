@@ -1,9 +1,8 @@
 <style>
   main {
     width: 100%;
-    min-height: 880px;
+    min-height: 800px;
     display: flex;
-    justify-content: left;
     align-items: top;
     padding: 1rem;
     box-sizing: inherit;
@@ -26,8 +25,13 @@
 </style>
 <app-navbar></app-navbar>
 <main class="main" [ngStyle]="{'background-image': 'linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), ' + currentBackground }">
-  
-  <div class="content">
+  <div class="navbar-menubox" *ngIf="showMenuOption" (click)="showMenuOption = false">
+    <div class="navbar-menubox-content">
+      <span class="navbar-menubox-text">No main menu to return to... yet! Click here to close.</span>
+      <img src="/assets/ness-porky.gif" alt="close icon">
+    </div>
+  </div>
+  <div class="content">    
       <div class="menu" (mouseleave)="setSelected(-1)">
         <div 
           *ngFor="let item of items; let i = index"
@@ -44,18 +48,23 @@
       <div class="dialog-box">
       {{ dialogText }}
       </div>
-    </div>
+    </div>     
     <!-- Equip menu option -->
-   <div class="equip-menu" *ngIf="showEquipMenu">
+   <div class="dialog-box" *ngIf="showEquipMenu">
       <div 
           *ngFor="let bg of backgrounds"
           (mouseenter)="currentBackground = bg.url"
           (click)="selectBackground(bg)"
-          class="equip-item"
+          class="dialog-item"
         >
         {{ bg.name }}
       </div>
     </div>
+    <!-- Check menu option -->
+      <div class="dialog-overlay" *ngIf="check" (click)="check = false">
+        <div class="check-box" [ngStyle]="{'background-image': boxitem }">         
+        </div>
+      </div>
   </div>
 </main>
 <footer> 
