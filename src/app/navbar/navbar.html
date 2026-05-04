@@ -1,8 +1,11 @@
 <nav class="navbar">
-  <div class="navbar-title">Welcome to my weird web site</div>
+  <div class="navbar-title">
+    <span>Welcome to my weird web site  </span>
+    <span><img src="/assets/skyrunner.gif" style="height: 34px; width: 34px;" alt="sky"></span>
+  </div>
   <div class="navbar-menu">
-    <span class="navbar-item">Main Menu</span>
-    <span class="navbar-item">About</span>
+    <span class="navbar-item" id="menu-link" (click)="showMenu()">Main Menu</span>
     <span class=""><img src="/assets/earthwalk.gif" class="navbar-icon" alt="walk"></span>
   </div>
 </nav>
+  

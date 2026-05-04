@@ -19,14 +19,17 @@
   margin: 0 1rem;
   padding: 0.5rem 0.5rem;
   border-radius: 6px;
+  text-align: center;
 }
 .navbar-item:hover {
   background-color: #dac031;
 }
 
 .navbar-icon {
-  width: 125px;
-  height: 45px;
+  width: 100%;
+  max-width: 145px;
+  height: 100%;
+  max-height: 45px;
 }
 
 .navbar-title{
