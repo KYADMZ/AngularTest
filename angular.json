@@ -32,6 +32,11 @@
                 "glob": "**/*",
                 "input": "src/fonts",
                 "output": "/fonts"
+              },
+              {
+                "glob": "**/*",
+                "input": "src/icons",
+                "output": "/icons"
               }
             ],       
             "styles": [
