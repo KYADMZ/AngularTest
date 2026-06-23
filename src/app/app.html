@@ -45,7 +45,7 @@
       </div>
     <!-- Talk menu option -->  
     <div class="dialog-overlay" *ngIf="showDialog" (click)="showDialog = false">
-      <div class="dialog-box">
+      <div class="dialog-box" style="white-space: pre-line;">
       {{ dialogText }}
       </div>
     </div>   
@@ -53,6 +53,7 @@
      <div class="goods-menu grid" *ngIf="showGoodsMenu">
       <div 
         *ngFor="let menu of menus"
+        (mouseenter)="hoversound()"
         (click)="selectItem(menu)"
         class="goods-slot"
       >       
@@ -66,7 +67,7 @@
    <div class="dialog-box" *ngIf="showEquipMenu">
       <div 
           *ngFor="let bg of backgrounds"
-          (mouseenter)="currentBackground = bg.url"
+          (mouseenter)="currentBackground = bg.url; hoversound()"
           (click)="selectBackground(bg)"
           class="dialog-item"
         >
