@@ -4,8 +4,8 @@
     <span><img src="/assets/skyrunner.gif" style="height: 34px; width: 34px;" alt="sky"></span>
   </div>
   <div class="navbar-menu">
-    <span class="navbar-item" id="menu-link" routerLink="/">Main Menu</span>
-    <span class="navbar-item" id="about-link" routerLink="/about">About</span>  
+    <span class="navbar-item" id="menu-link" routerLink="/" (mouseenter)="hoversound()" (click)="confirmmenusound(); goTo('/')">Main Menu</span>
+    <span class="navbar-item" id="about-link" routerLink="/about" (mouseenter)="hoversound()" (click)="confirmmenusound(); goTo('/about')">About</span>  
     <span class=""><img src="/assets/earthwalk.gif" class="navbar-icon" alt="walk"></span>
   </div>
 </nav>

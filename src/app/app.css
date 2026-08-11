@@ -172,3 +172,85 @@ footer {
   background: #959e10;
   color: yellow;
 }
+
+/* styles for the loading screen */
+.page-transition {
+  position: fixed;
+  inset: 0;
+  background: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.page-transition img {
+  width: 250px;
+  height: 250px;
+
+  position: relative;
+  z-index: 2;
+  animation: imgClose 0.7s ease-in 1.4s forwards;
+}
+.transition-circle {
+  position: absolute;
+
+  width: 0;
+  height: 0;
+
+  border-radius: 50%;
+
+  background: black;
+
+  z-index: 1;
+
+  animation:
+    circleOpen 0.7s ease-out forwards,
+    circleClose 0.7s ease-in 1.4s forwards;
+}
+
+@keyframes circleOpen {
+
+  from {
+    width: 0;
+    height: 0;
+  }
+
+  to {
+    width: 300vmax;
+    height: 300vmax;
+  }
+
+}
+
+@keyframes circleClose {
+ 
+  from {
+    width: 300vmax;
+    height: 300vmax;
+    
+  }
+
+  to {
+    width: 0;
+    height: 0;
+  }
+
+}
+
+@keyframes imgClose {
+ 
+  from {
+    width: 250px;
+    height: 250px;
+    
+  }
+
+  to {
+    width: 0;
+    height: 0;
+  }
+
+}

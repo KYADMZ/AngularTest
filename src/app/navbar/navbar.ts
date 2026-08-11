@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { App } from '../app';
 import { RouterLink } from '@angular/router';
 
@@ -12,9 +12,24 @@ import { RouterLink } from '@angular/router';
 })
 export class Navbar {
   constructor(private app: App) {}
- 
 
-  showMenu() {
-    this.app.showMenu();
+  confirmsound = new Audio('/assets/cursorconfirm.wav');
+  equipcursorsound = new Audio('/assets/equipcursor.wav');
+
+
+   //Functions for sound effects
+  hoversound() {
+    this.equipcursorsound.play();
+    this.equipcursorsound.currentTime = 0;
+  }
+  confirmmenusound() {
+    this.confirmsound.play();
+    this.confirmsound.currentTime = 0;
+  } 
+
+  @Output() navigate = new EventEmitter<string>();
+
+  goTo(route: string) {
+    this.navigate.emit(route);
   }
 }
