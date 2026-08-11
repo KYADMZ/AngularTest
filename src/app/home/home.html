@@ -1,0 +1,79 @@
+<style>
+  main {
+    width: 100%;
+    min-height: 800px;
+    display: flex;
+    align-items: top;
+    padding: 1rem;
+    box-sizing: inherit;
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    
+  }
+
+  .content {
+   
+    justify-content: left;
+    padding: 2rem;
+    width: 100%;
+    max-width: 700px;
+    margin-bottom: 3rem;
+  }
+
+</style>
+<main class="main" [ngStyle]="{'background-image': 'linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), ' + currentBackground }"> 
+  <div class="content">    
+      <div class="menu" (mouseleave)="setSelected(-1)">
+        <div 
+          *ngFor="let item of items; let i = index"
+          (mouseenter)="setSelected(i)"
+          (click)="onSelect(item)"
+          [class.selected]="i === selectedIndex"
+        >
+          <span *ngIf="i === selectedIndex">▶</span>
+          {{ item }}
+        </div>
+      </div>
+    <!-- Talk menu option -->  
+    <div class="dialog-overlay" *ngIf="showDialog" (click)="showDialog = false; confirmmenusound()">
+      <div class="dialog-box" style="white-space: pre-line;">
+      {{ dialogText }}
+      </div>
+    </div>   
+      <!-- Goods menu option -->
+     <div class="goods-menu grid" *ngIf="showGoodsMenu">
+      <div 
+        *ngFor="let menu of menus"
+        (mouseenter)="hoversound()"
+        (click)="selectItem(menu)"
+        class="goods-slot"
+      >       
+          <div><img [src]="menu.icon" style="max-height: 30px; max-width: fit-content; align-items: center;" alt="{{ menu.name }}" /></div>        
+      </div>
+      <div class="goods-slot" (mouseenter)="hoversound()" (click)="showGoodsMenu = false; confirmmenusound()">
+        <img src="/icons/exit.png" style="max-height: 30px; max-width: fit-content; align-items: center;" alt="exit"/>      
+      </div>
+    </div>   
+    <!-- Equip menu option -->
+   <div class="dialog-box" *ngIf="showEquipMenu">
+      <div 
+          *ngFor="let bg of backgrounds"
+          (mouseenter)="currentBackground = bg.url; hoversound()"
+          (click)="selectBackground(bg)"
+          class="dialog-item"
+        >
+        {{ bg.name }}
+      </div>
+    </div>
+    <!-- Check menu option -->
+      <div class="dialog-overlay" *ngIf="check" (click)="check = false; confirmmenusound()">
+        <div class="check-box" [ngStyle]="{'background-image': boxitem }">         
+        </div>
+      </div>
+  </div>
+</main>
+<footer> 
+<div style="align-content: left;">2026</div>
+<div style="align-content: right;">Developed by KMz!</div>
+</footer>
