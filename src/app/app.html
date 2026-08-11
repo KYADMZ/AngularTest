@@ -1,13 +1,13 @@
 
-<app-navbar></app-navbar>
-
- <!-- <div class="navbar-menubox" *ngIf="showMenuOption" (click)="showMenuOption = false">
-    <div class="navbar-menubox-content">
-      <span class="navbar-menubox-text">No main menu to return to... yet! Click here to close.</span>
-      <img src="/assets/ness-porky.gif" alt="close icon" style="min-height: fit-content; max-height: 40px;">
-    </div>  
-  </div> -->
+<app-navbar (navigate)="navigateWithTransition($event)"></app-navbar>
 <router-outlet></router-outlet>
+
+ <div class="page-transition"  [style.display]="isTransitioning ? 'flex' : 'none'">
+    <img [src]="gifSrc" alt="Loading">
+    <div class="transition-circle"></div>
+  </div>
+
+ 
 
 
 
