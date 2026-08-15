@@ -2,12 +2,15 @@
 <app-navbar (navigate)="navigateWithTransition($event)"></app-navbar>
 <router-outlet></router-outlet>
 
- <div class="page-transition"  [style.display]="isTransitioning ? 'flex' : 'none'">
+ <div class="page-transition"  [style.display]="isTransitioning ? 'flex' : 'none'" >
     <img [src]="gifSrc" alt="Loading">
     <div class="transition-circle"></div>
   </div>
 
- 
+<footer> 
+<div style="align-content: left;">2026</div>
+<div style="align-content: right;">Developed by KMz!</div>
+</footer>
 
 
 
