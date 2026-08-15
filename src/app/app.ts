@@ -25,6 +25,29 @@ export class App {
   this.gifSrc = `assets/loading.gif?t=${Date.now()}`;  
   
   this.isTransitioning = true;
+
+
+  const resetAnimations = () => {
+    const wrapper = document.querySelector('.page-transition') as HTMLElement | null;
+    if (!wrapper) return;
+    const img = wrapper.querySelector('img') as HTMLElement | null;
+    const circle = wrapper.querySelector('.transition-circle') as HTMLElement | null;
+
+    [wrapper, img, circle].forEach(el=>{
+      if (!el) return;
+    
+      el.style.animation = 'none';
+    });
+    
+    void document.body.offsetWidth;
+    [wrapper, img, circle].forEach(el=>{
+      if (!el) return;
+      el.style.animation = ''; 
+    });
+  };
+
+resetAnimations();
+
   console.log(this.isTransitioning);
   this.loadingSound.currentTime = 0;
   this.loadingSound.play();
@@ -34,7 +57,7 @@ export class App {
     try {
       await this.router.navigate([route]);
     } finally {
-      await this.delay(100);
+      await this.delay(200);
       console.log('Navigation completed');
       this.isTransitioning = false;
       console.log(this.isTransitioning);

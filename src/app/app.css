@@ -73,6 +73,33 @@
   background-position: center;
 }
 
+/* Responsive tweaks for mobile check-box and goods menu */
+@media (max-width: 640px) {
+  .check-box {
+    padding: 8px;
+    max-width: 90vw;
+    max-height: 70vh;
+    width: 90vw;
+    height: auto;
+    background-size: contain;
+    background-repeat: no-repeat;
+    min-height: 160px; 
+    aspect-ratio: 1 / 1; 
+    border-width: 3px;
+  }
+
+  .goods-menu {
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: min(95vw, 360px);
+    padding: 8px;
+  }
+
+  .grid { grid-template-columns: repeat(3, 1fr); gap: 8px; }
+  .goods-slot { width: 64px; height: 64px; }
+}
+
 .dialog-item {
   padding: 8px;
   cursor: pointer;
@@ -187,8 +214,8 @@ footer {
 }
 
 .page-transition img {
-  width: 250px;
-  height: 250px;
+  width: 550px;
+  height: 550px;
 
   position: relative;
   z-index: 2;
@@ -243,8 +270,8 @@ footer {
 @keyframes imgClose {
  
   from {
-    width: 250px;
-    height: 250px;
+    width: 550px;
+    height: 550px;
     
   }
 
